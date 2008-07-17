@@ -1,10 +1,10 @@
-# $Id: /mirror/coderepos/lang/perl/MooseX-Q4MLog/trunk/lib/MooseX/Q4MLog.pm 66297 2008-07-16T13:33:55.974156Z daisuke  $
+# $Id: /mirror/coderepos/lang/perl/MooseX-Q4MLog/trunk/lib/MooseX/Q4MLog.pm 66311 2008-07-17T01:20:46.950350Z daisuke  $
 
 package MooseX::Q4MLog;
 use Moose::Role;
-use MooseX::Q4MLog;
+use MooseX::Q4MLog::Logger;
 
-our $VERSION   = '0.00001';
+our $VERSION   = '0.00002';
 our $AUTHORITY = 'cpan:DMAKI';
 
 requires 'format_q4mlog';
@@ -17,10 +17,10 @@ has 'logger' => (
 no Moose;
 
 sub BUILD {
-    my ($self, %args) = @_;
+    my ($self, $args) = @_;
 
     $self->logger( 
-        MooseX::Q4MLog::Logger->new( %{ $args{q4mlog} } )
+        MooseX::Q4MLog::Logger->new( %{ $args->{q4mlog} } )
     );
 }
 

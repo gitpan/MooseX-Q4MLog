@@ -17,4 +17,4 @@ requires:
   MooseX::ConfigFromFile: 0
   MooseX::Daemonize: 0
   Queue::Q4M: 0
-version: 0.00001
+version: 0.00002
